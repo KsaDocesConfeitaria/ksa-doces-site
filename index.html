@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KSA Doces & Confeitaria</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: #fff0f5;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #d63384, #ff85a2);
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+nav {
+    background: #ff85a2;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #d63384;
+}
+
+.produtos, .galeria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    width: 260px;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.galeria img {
+    width: 260px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+.botao {
+    background: #d63384;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    background: #b0256b;
+}
+
+form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea {
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+footer {
+    background: #d63384;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Botão flutuante WhatsApp */
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    color: white;
+    padding: 15px 18px;
+    border-radius: 50%;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>KSA DOCES & CONFEITARIA</h1>
+    <p>Transformando momentos em experiências doces 🍰✨</p>
+</header>
+
+<nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#pedido">Pedidos</a>
+</nav>
+
+<section id="sobre">
+    <h2>Sobre Nós</h2>
+    <p>Especialistas em bolos e doces artesanais feitos com carinho e ingredientes selecionados para tornar cada momento inesquecível.</p>
+</section>
+
+<section id="produtos">
+    <h2>Nossos Produtos</h2>
+    <div class="produtos">
+        <div class="card">
+            <h3>Bolos Personalizados</h3>
+            <p>Perfeitos para aniversários e eventos especiais.</p>
+        </div>
+        <div class="card">
+            <h3>Doces Gourmet</h3>
+            <p>Brigadeiros, beijinhos e doces finos.</p>
+        </div>
+        <div class="card">
+            <h3>Sobremesas</h3>
+            <p>Pudins, tortas e delícias irresistíveis.</p>
+        </div>
+    </div>
+</section>
+
+<section id="galeria">
+    <h2>Galeria</h2>
+    <div class="galeria">
+        <img src="https://images.unsplash.com/photo-1599785209707-28d4c4f0e6f0" alt="Bolo">
+        <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c" alt="Doces">
+        <img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7" alt="Torta">
+    </div>
+</section>
+
+<section id="pedido">
+    <h2>Faça seu Pedido</h2>
+    <form onsubmit="enviarWhatsApp(event)">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="text" id="produto" placeholder="Produto desejado" required>
+        <textarea id="detalhes" placeholder="Detalhes do pedido"></textarea>
+        <button class="botao" type="submit">Enviar Pedido</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 KSA Doces & Confeitaria - Todos os direitos reservados</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/5500000000000" target="_blank">💬</a>
+
+<script>
+function enviarWhatsApp(event){
+    event.preventDefault();
+
+    var nome = document.getElementById("nome").value;
+    var produto = document.getElementById("produto").value;
+    var detalhes = document.getElementById("detalhes").value;
+
+    var mensagem = `Olá! Meu nome é ${nome}. Gostaria de pedir: ${produto}. Detalhes: ${detalhes}`;
+
+    var telefone = "5513998077964"; // COLOQUE SEU NÚMERO AQUI
+
+    var url = `https://wa.me/${telefone}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
